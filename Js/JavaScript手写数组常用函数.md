@@ -22,6 +22,14 @@
 
 #### 正文
 ***
+参数说明
+> callbackFn 回调函数
+> thisArg 执行 callbackFn 时使用的 this 值
+> currentValue 数组中正在处理的元素
+> index 当前索引
+> array 源数组
+> accumulator 累加器
+> initialValue reduce、reduceRight 第一次调用 callbackFn 函数时的第一个参数的值默认值
 
 #### <span id="forEach">forEach 函数</span>
 ***
