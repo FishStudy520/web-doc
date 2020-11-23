@@ -10,18 +10,17 @@
 #### 1. 将Url参数转换成对象，没有参数时返回空对象
 * * *
 ```
-function formatParamsToObject() {
-    let search = window.location.search, // 获取url的参数部分
-        obj = {};
-    if (!search) return obj;
-    let params = search.split('?')[1]; // 获取参数
-    let paramsArr = params.split('&');
-    // 遍历数组
-    for (let i of paramsArr) {
-        let arr = i.split('=');
-        obj[arr[0]] = arr[1] // 设置对象key,value
-    }
-    return obj
+function getQueryObject () {
+  let search = window.location.search.substr(1) || window.location.hash.split('?')[1], // 获取url的参数部分,兼容 hash（#） 模式
+	obj = {};
+  if (!search) return obj;
+  let paramsArr = search.split('&');
+  // 遍历数组
+  for (let i of paramsArr) {
+	let arr = i.split('=');
+	obj[arr[0]] = arr[1]; // 设置对象key,value
+  }
+  return obj;
 }
 ```
 
