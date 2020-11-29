@@ -7,6 +7,7 @@ web 笔记，记录自己学习前端的历程，记录自己学习的代码，�
   - [x] JavaScript
     * [JavaScript常用代码块](./Js/JavaScript常用代码块/JavaScript常用代码块.md)
 	* [JavaScript手写数组常用函数](./Js/JavaScript手写数组常用函数.md)
+	* [前端常见的报错以及异常捕获调试](./Js/前端常见的报错以及异常捕获.md)
   - [x] Css
 	* [常见的CSS样式操作](./Css/常见的CSS样式操作.md)
   - [x] HTML
