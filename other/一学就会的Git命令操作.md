@@ -1,9 +1,9 @@
 #### 一学就会的git 命令
 ***
-![image text](../images/git流程图.png)
+![git流程图](../images/git流程图.png)
 #### 导读
 ***
-使用git 已不知好几年，最近想着把常用的一些git 命令做个总结，本文主要写的是git 常用的命令。
+使用git 已不知好几年，最近想着把常用的一些git 命令做个总结，本文主要写的是git常用的命令。
 
 
 > **阅读三连：点赞（👍）、关注（😍）、收藏（📝）。**  
@@ -81,7 +81,7 @@ Untracked files: 未跟踪的文件，新创建的文件 （未跟踪的文件�
 Changes to be committed:暂存已修改的文件，该文件运行在git add 的版本历史记录中，但还没有commit   ;
 Changes not staged for commit: 暂存已修改的文件;
  
-![Image text](./../images/git-status.png)
+![git-status](./../images/git-status.png)
 1. 未跟踪的文件(Untracked)和已修改的文件（Modified）通过`git add .`提交到暂存区，使用`git reset HEAD <file>` 还原到`git add .`时的状态；
 2. 已修改的文件（Modified）使用`git checkout .`将以跟踪所有已修改的文件，还原到修改前的状态（Unmodifed）；
 3. 以跟踪未修改的文件（Unodified）通过本地仓库切换出新分支所得；
@@ -155,12 +155,7 @@ git branch <branch_name>  //branch_name: 新分支名称
 git checkout develop  // 切换到develop分支
 ```
 
-如果不想操作两遍，我们可以使用下面命令来创建分支，并且切换分支；
-```
-git checkout -b <branch_name>  // branch_name: 新分支名称
-```
-
-删除分支；
+删除某个分支；
 ```
 git branch -d  <branch_name>  // branch_name：需要删除的分支名
 // 举个栗子：删除develop 分支
@@ -168,29 +163,22 @@ git branch -d develop
 // 强制删除某个分支，分支未合并，如果想删除，就使用下面命令；
 git branch -D develop
 ```
-合并分支；
+
+打印当前分支名称；
 ```
-git merge <branch_name>  // branch_name: 合并的分支名
+git branch --show-current
 ```
 
-放弃所有已修改的文件（还原），不包含新增文件；
+显示与工作区分支已合并的分支；
 ```
-git checkout .
-git checkout . file  /// 还原file文件
+git branch --merged
 ```
 
-举个栗子：
+显示与工作区分支未合并的分支；
 ```
-git checkout -b testing // 创建一个testing分支，并切换到testing分支
-touch index.js          // 创建一个index.js文件
-// index.js，输入内容，保存
-let a = 1, b=2;
-git add index.js 
-git commit -m 'Feat:新增 index.js文件'
-git checkout master    // 切回到master 分支
-git merge testing      // 合并testing分支
-git branch -d testing  //删除testing分支
+git branch --no-merged
 ```
+
 
 #### git checkout (检出)
 ***
@@ -206,9 +194,10 @@ git checkout develop //切换到develop 分支
 git checkout -b <branch_name> //  branch_name:新增分支名称
 git checkout -b develop   // 创建develop 分支并切换到develop分支上
 ```
-
-切换分支
-
+忽略工作区，切换分支；
+```
+git checkout -f  <branch_name>  // 忽略修改切换到 branch_name 上
+```
 
 
 #### git log(提交记录)
@@ -316,7 +305,7 @@ git ls-remote --tags origin
 git checlout -b <branch_name> <tag_name>  // branch_name:新分支名，tag_name： tag名
 ```
 
-#### git 推送
+#### git 远端仓库
 ***
 查看远程仓库；
 ```
@@ -341,6 +330,10 @@ git fetch <remote>    //remote： 远程地址
 git pull origin master  // 拉去远程仓库数据
 ```
 
+删除远程仓库的某个分支；
+```
+git push origin --delete <branch_name>  // branch_name: 远端分支名
+```
 
 推送到远程仓库；
 ```
@@ -368,7 +361,6 @@ git pull 与 git fetch 的区别：
 ```
 git pull = git fetch  + git merge
 ```
-
 
 #### 贮藏与清理
 ***
