@@ -218,6 +218,17 @@ git checkout -f  <branch_name>  // 忽略修改切换到 branch_name 上
 git merge --abort
 ```
 
+### git reset
+***
+`git reset`用于回退版本，可以指定退回某一次提交的版本。
+
+回退内容到某个版本；
+```
+git reset HEAD^              // 将所有文件还原上一个版本
+git reset HEAD^ <file_name> // 将某个文件还原上一个版本
+git reset <commit-id>       // 将文件还原到某个版本
+```
+
 #### git log(提交记录)
 ***
 查看所有的提交记录；
@@ -243,7 +254,7 @@ git log --stat
 
 --prettry：这个参数用于自定义输出格式信息；比如：oneline[单行],format[定制时间格式]
 ```
-git log --prettry=oneline 
+git log --pretty=oneline 
 ```
 
 -n: n代表限制输出的数量，最近的n条提交信息；
